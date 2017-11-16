@@ -1,18 +1,34 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {PageHeader,
+        Button} from 'react-bootstrap';
+import ItemList from './ItemList';
 
 class App extends Component {
+  state = {
+    items: [
+      {
+        quantity: 1,
+        name: 'Ketchup',
+        tags: ['condiments']
+      },
+      {
+        quantity: 3,
+        name: 'Milk',
+        tags: ['beverage', 'dairy']
+      }
+    ]
+  };
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <PageHeader className="text-center">Inventory App</PageHeader>
+
+        <div className="container-fluid">
+          <Button className="mb-4" bsStyle="primary">Add Item</Button>
+          <ItemList
+            items={this.state.items} />
+        </div>
       </div>
     );
   }
