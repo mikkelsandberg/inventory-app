@@ -3,3 +3,17 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+table th:not(:last-of-type),
+table td:not(:last-of-type) {
+  width: 1px;
+}
+
+table .removeItem {
+  text-align: center;
+  cursor: pointer;
+}
+
+table .itemName {
+  text-transform: capitalize;
+}

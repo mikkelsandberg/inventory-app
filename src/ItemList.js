@@ -7,23 +7,24 @@ const ItemList = props =>
   <Table striped bordered hover>
     <thead>
       <tr>
+        <th>Remove</th>
         <th>Qty</th>
         <th>Item</th>
-        <th>Tags</th>
       </tr>
     </thead>
     <tbody>
-      {props.items.map((item, index) =>
+      {props.items.map((item, id) =>
         <Item
-          key={index}
+          key={id}
+          handleRemove={() => props.handleRemove(item.id)}
           quantity={item.quantity}
-          name={item.name}
-          tags={item.tags} />
+          name={item.name}/>
       )}
     </tbody>
   </Table>;
 
 ItemList.propTypes = {
+  handleRemove: PropTypes.func.isRequired,
   items: PropTypes.array.isRequired
 }
 
